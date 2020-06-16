@@ -10,8 +10,15 @@ describe("Paint", function() {
 
     describe("Properties", function() {
         it("should have litres of paint", function() {
-            const actual = paint.litres
+            const actual = paint.litres;
             assert.strictEqual(actual, 5)
+        });
+    });
+
+    describe("Methods", function(){
+        it("should check if empty", function() {
+            const actual = paint.checkEmpty();
+            assert.strictEqual(actual, false);
         });
     });
 });

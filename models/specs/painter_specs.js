@@ -60,17 +60,27 @@ describe("Painter", function() {
             assert.strictEqual(actualTotalPaint, 28);
             assert.strictEqual(actualStock, 1);
         });
-        
-        // it("should be able to paint room", function() {
-        //     painter.paintRoom(room);
-        //     const actualRoom = room.painted;
-        //     const actualPainterStock = painter.numberOfPaintStock();
-        //     const actualPainterTotal = painter.calculatePaintInStock();
-        //     assert.strictEqual(actualRoom, true);
-        //     assert.strictEqual(actualPainter, 1);
-        //     assert.strictEqual(actualPainterTotal, 6);
-        //     // test if litres have gone down in remaining can
-        // });
+
+        it("should be able to paint room if enough paint", function() {
+            painter.paintRoom(room);
+            const actualRoom = room.painted;
+            const actualPainterTotal = painter.calculatePaintInStock();
+            const actualPaintStock = painter.numberOfPaintStock();
+            assert.strictEqual(actualRoom, true);
+            assert.strictEqual(actualPainterTotal, 6);
+            assert.strictEqual(actualPaintStock, 1);
+        });
+
+        it("should not be able to paint room if not enough paint", function() {
+            const room2 = new Room(55);
+            painter.paintRoom(room2);
+            const actualRoom = room.painted;
+            const actualPainterTotal = painter.calculatePaintInStock();
+            const actualPaintStock = painter.numberOfPaintStock();
+            assert.strictEqual(actualRoom, false);
+            assert.strictEqual(actualPainterTotal, 48);
+            assert.strictEqual(actualPaintStock, 2);
+        });
     });
     
 });

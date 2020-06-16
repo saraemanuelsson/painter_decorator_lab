@@ -51,11 +51,11 @@ Painter.prototype.goThroughPaint = function(paint_needed) {
 };
 
 Painter.prototype.paintRoom = function(room) {
-    if (this.checkEnoughPaint() === true ) {
+    if (this.checkEnoughPaint(room.area) === true ) {
         room.painted = true;
-
-    }
-}
+        this.goThroughPaint(room.area);
+    };
+};
 
 
 

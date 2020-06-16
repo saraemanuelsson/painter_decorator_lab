@@ -12,17 +12,17 @@ Painter.prototype.addPaint = function(paint) {
 
 Painter.prototype.calculatePaintInStock = function() {
     let litresOfPaint = 0
-    for (var paint of this.paintStock) {
+    for (const paint of this.paintStock) {
         litresOfPaint += paint.litres
     };
     return litresOfPaint;
 }; 
 
 Painter.prototype.checkEnoughPaint = function(area) {
-    if (this.calculatePaintInStock >= area) {
-        return true
+    if (this.calculatePaintInStock() >= area) {
+        return true;
     } else {
-        return false
+        return false;
     };
 };
 

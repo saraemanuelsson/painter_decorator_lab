@@ -26,6 +26,22 @@ Painter.prototype.checkEnoughPaint = function(area) {
     };
 };
 
+Painter.prototype.removeEmpty = function() {
+    for (const paint of this.paintStock) {
+        if (paint.litres === 0) {
+            index = this.paintStock.indexOf(paint)
+            this.paintStock.splice(index, 1)
+        };
+    };
+};
+
+Painter.prototype.paintRoom = function(room) {
+    if (this.checkEnoughPaint() === true ) {
+        room.painted = true;
+
+    }
+}
+
 
 
 module.exports = Painter

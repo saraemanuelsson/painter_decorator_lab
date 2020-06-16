@@ -5,7 +5,7 @@ const Painter = require("../painter");
 
 describe("Painter", function() {
     let painter
-    const paint = new Paint(10);
+    let paint = new Paint(10);
     const morePaint = new Paint(38);
     const room = new Room(42);
 
@@ -39,6 +39,13 @@ describe("Painter", function() {
         it("should be able to check if there's enough paint for a room", function(){
             const actual = painter.checkEnoughPaint(room.area);
             assert.strictEqual(actual, true);
+        });
+
+        it("should remove empty paint cans", function() {
+            paint.litres = 0
+            painter.removeEmpty();
+            const actual = painter.numberOfPaintStock();
+            assert.strictEqual(actual, 1);
         });
 
         // it("should be able to paint room", function() {

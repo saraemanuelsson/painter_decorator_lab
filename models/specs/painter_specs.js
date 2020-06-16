@@ -12,7 +12,7 @@ describe("Painter", function() {
 
     describe("Properties", function() {
         it("should start with an empty paint stock", function() {
-            const actual = painter.paintStock.length;
+            const actual = painter.numberOfPaintStock();
             assert.strictEqual(actual, 0)
         });
     });
@@ -21,7 +21,7 @@ describe("Painter", function() {
         it("should be able to add can to stock", function() {
             const paint = new Paint(10);
             painter.addPaint(paint);
-            const actual = painter.paintStock.length;
+            const actual = painter.numberOfPaintStock();
             assert.strictEqual(actual, 1);
         });
     });

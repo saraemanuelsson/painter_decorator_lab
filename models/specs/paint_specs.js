@@ -26,5 +26,11 @@ describe("Paint", function() {
             const actual = paint.litres
             assert.strictEqual(actual, 0)
         });
+
+        it("should lower the litres when partly used", function () {
+            paint.decreaseLitres(2);
+            const actual = paint.litres;
+            assert.strictEqual(actual, 3);
+        });
     });
 });

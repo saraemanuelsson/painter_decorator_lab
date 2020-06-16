@@ -20,5 +20,11 @@ describe("Paint", function() {
             const actual = paint.checkEmpty();
             assert.strictEqual(actual, false);
         });
+
+        it("should be able to empty itself", function() {
+            paint.emptyCan()
+            const actual = paint.litres
+            assert.strictEqual(actual, 0)
+        });
     });
 });

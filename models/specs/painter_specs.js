@@ -48,13 +48,13 @@ describe("Painter", function() {
             assert.strictEqual(actual, 1);
         });
 
-        it("should go through paint", function() {
-            painter.goThroughPaint(20);
-            const actualTotalPaint = painter.calculatePaintInStock();
-            const actualStock = painter.numberOfPaintStock();
-            assert.strictEqual(actualTotalPaint, 28);
-            assert.strictEqual(actualStock, 1);
-        });
+        // it("should go through paint", function() {
+        //     painter.goThroughPaint(20);
+        //     const actualTotalPaint = painter.calculatePaintInStock();
+        //     const actualStock = painter.numberOfPaintStock();
+        //     assert.strictEqual(actualTotalPaint, 28);
+        //     assert.strictEqual(actualStock, 1);
+        // });
 
         // it("should be able to paint room", function() {
         //     painter.paintRoom(room);

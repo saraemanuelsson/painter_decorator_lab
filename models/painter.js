@@ -36,9 +36,19 @@ Painter.prototype.removeEmpty = function() {
     this.paintStock = not_empty_cans;
 };
 
-Painter.prototype.goThroughPaint = function(litres) {
-    // 
-}
+Painter.prototype.goThroughPaint = function(paint_needed) {
+    for (const paint of this.paintStock) {
+        if (paint_needed != 0) {
+            if (paint_needed > paint.litres) {
+                paint_needed -= paint.litres;
+                paint.emptyCan();
+            } else {
+                paint.decreaseLitres(paint_needed);
+            };
+        };
+    };
+    this.removeEmpty();
+};
 
 Painter.prototype.paintRoom = function(room) {
     if (this.checkEnoughPaint() === true ) {

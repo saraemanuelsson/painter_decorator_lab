@@ -5,17 +5,22 @@ const Painter = require("../painter");
 
 describe("Painter", function() {
     let painter
-    let paint = new Paint(10);
-    const morePaint = new Paint(38);
-    const room = new Room(42);
+    let paint
+    let morePaint
+    let room
 
     beforeEach(function() {
         painter = new Painter()
+        paint = new Paint(10);
+        morePaint = new Paint(38);
+        room = new Room(42);
         painter.addPaint(paint);
         painter.addPaint(morePaint);
     });
 
     describe("Properties", function() {
+
+    
         it("should start with an empty paint stock", function() {
             const newPainter = new Painter()
             const actual = newPainter.numberOfPaintStock();
@@ -24,7 +29,6 @@ describe("Painter", function() {
     });
 
     describe("Methods", function() {
-
         it("should be able to add can to stock", function() {
             painter.addPaint(paint);
             const actual = painter.numberOfPaintStock();
@@ -42,20 +46,21 @@ describe("Painter", function() {
         });
 
         it("should remove empty paint cans", function() {
-            paint.litres = 0
+            painter.paintStock[0].litres = 0
             painter.removeEmpty();
             const actual = painter.numberOfPaintStock();
             assert.strictEqual(actual, 1);
         });
 
-        // it("should go through paint", function() {
-        //     painter.goThroughPaint(20);
-        //     const actualTotalPaint = painter.calculatePaintInStock();
-        //     const actualStock = painter.numberOfPaintStock();
-        //     assert.strictEqual(actualTotalPaint, 28);
-        //     assert.strictEqual(actualStock, 1);
-        // });
-
+        it("should go through paint", function() {
+            console.log(painter.paintStock)
+            painter.goThroughPaint(20);
+            const actualTotalPaint = painter.calculatePaintInStock();
+            const actualStock = painter.numberOfPaintStock();
+            assert.strictEqual(actualTotalPaint, 28);
+            assert.strictEqual(actualStock, 1);
+        });
+        
         // it("should be able to paint room", function() {
         //     painter.paintRoom(room);
         //     const actualRoom = room.painted;
